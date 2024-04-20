@@ -106,7 +106,7 @@ const crearEgresos = (egreso) => {
                         <div class="elemento_porcentaje">${formatoPorcentaje(porcentajeEgreso)}</div>
                         <div class="elemento_eliminar">
                             <button class="elemento_eliminar--btn">
-                                <ion-icon name=close-circle-outline></ion-icon>
+                                <ion-icon name=close-circle-outline onclick="eliminarEgreso(${egreso.id})"></ion-icon>
                             </button>
                         </div>
                     </div>
@@ -115,12 +115,14 @@ const crearEgresos = (egreso) => {
     return egresosTemplete;
 }
 
-const eliminarEngreso = (id) => {
+const eliminarEgreso = (id) => {
     let egresoEliminar = egresos.findIndex(egresos => egreso.id === id);
     egresos.splice(egresoEliminar, 1);
     cargarCabecero();
-    cargarIngresos();
+    cargarEgresos();
 }
+
+
 
 
 // Función para cargar la aplicación
